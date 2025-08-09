@@ -1,8 +1,6 @@
 import { Route, Routes } from "react-router";
 import { Layout } from "../components/Layout";
-import { MainPage } from "../pages/MainPage";
-import { Estudios } from "../pages/Estudios";
-import { Proyectos } from "../pages/Proyectos";
+import { MainPage, Contacto, Estudios, Proyectos } from "../pages";
 
 export function AppRoutes() {
   return (
@@ -11,6 +9,7 @@ export function AppRoutes() {
         <Route index element={<MainPage />} />
         <Route path="/estudios" element={<Estudios />} />
         <Route path="/proyectos" element={<Proyectos />} />
+        <Route path="/contacto" element={<Contacto />} />
       </Route>
     </Routes>
   );

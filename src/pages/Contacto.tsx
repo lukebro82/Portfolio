@@ -43,7 +43,7 @@ export const Contacto = () => {
     <div className="bg-gray-900 flex-1 text-white flex flex-col items-center gap-10 p-10">
       <div className="flex flex-row justify-center gap-8 p-4 w-full max-w-md">
         <a
-          href="https://www.linkedin.com/in/tu-perfil-linkedin"
+          href="https://www.linkedin.com/in/lucas-ricci82/"
           target="_blank"
           rel="noopener noreferrer"
           className="hover:scale-110 transition-transform"
@@ -55,7 +55,7 @@ export const Contacto = () => {
           />
         </a>
         <a
-          href="https://github.com/tu-usuario-github"
+          href="https://github.com/lukebro82"
           target="_blank"
           rel="noopener noreferrer"
           className="hover:scale-110 transition-transform"

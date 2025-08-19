@@ -41,7 +41,7 @@ export const Estudios = () => {
       date: "2025",
       description:
         "Curso de React desde los fundamentos de la librería hasta aspectos técnicos avanzados y despliegues, incorporando librerías adicionales ampliamente utilizadas en la industria.",
-      img: "https://cdn.filestackcontent.com/Hm8VEeJBSG6xmZfd3sHj?policy=eyJjYWxsIjpbInJlYWQiXSwiZXhwaXJ5IjoxNzU0Nzg4NjY5LCJwYXRoIjoiLyJ9&signature=bfedde64de7de5d12cb10449c41566fc5ef975981975c375abeaffbfcc1dbcd5",
+      img: "https://cdn.filestackcontent.com/Hm8VEeJBSG6xmZfd3sHj?policy=eyJjYWxsIjpbInJlYWQiXSwiZXhwaXJ5IjoxNzU1NjExOTI2LCJwYXRoIjoiLyJ9&signature=dc79f8663e9669a25cc1e74c2c02c1bffd2b0a8ada7c2f0ba70ccd85fb3a9023",
     },
   ];
 

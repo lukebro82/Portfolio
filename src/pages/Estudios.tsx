@@ -40,14 +40,14 @@ export const Estudios = () => {
       place: "DevTalles",
       date: "2025",
       description:
-        "Curso de React desde los fundamentos de la librería hasta aspectos técnicos avanzados y despliegues, incorporando librerías adicionales ampliamente utilizadas en la industria.",
+        "Curso de React desde fundamentos hasta aspectos técnicos avanzados y despliegues, incorporando librerías adicionales utilizadas en la industria.",
       img: "https://cdn.filestackcontent.com/Hm8VEeJBSG6xmZfd3sHj?policy=eyJjYWxsIjpbInJlYWQiXSwiZXhwaXJ5IjoxNzU1NjExOTI2LCJwYXRoIjoiLyJ9&signature=dc79f8663e9669a25cc1e74c2c02c1bffd2b0a8ada7c2f0ba70ccd85fb3a9023",
     },
   ];
 
   return (
-    <div className="bg-gray-900 flex-1 text-white flex flex-col items-center py-16 px-6">
-      <h1 className="text-4xl font-bold text-pink-600 mb-12 uppercase tracking-widest">
+    <div className="bg-gray-900 h-[80dvh] text-white flex flex-col items-center py-4 px-6 overflow-y-auto">
+      <h1 className="text-4xl font-bold text-pink-600 mb-6 uppercase tracking-widest">
         Mis Estudios
       </h1>
 

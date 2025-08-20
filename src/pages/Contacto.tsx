@@ -40,8 +40,8 @@ export const Contacto = () => {
     onResetForm();
   };
   return (
-    <div className="bg-gray-900 flex-1 text-white flex flex-col items-center gap-10 p-10">
-      <div className="flex flex-row justify-center gap-8 p-4 w-full max-w-md">
+    <div className="bg-gray-900 h-[80dvh] text-white flex flex-col items-center gap-6 md:gap-10 p-6 md:p-10 overflow-y-auto">
+      <div className="flex flex-row justify-center gap-6 md:gap-8 p-2 w-full max-w-md">
         <a
           href="https://www.linkedin.com/in/lucas-ricci82/"
           target="_blank"
@@ -69,7 +69,7 @@ export const Contacto = () => {
       </div>
 
       <div className="w-full max-w-md">
-        <form onSubmit={onSubmit} className="flex flex-col gap-6">
+        <form onSubmit={onSubmit} className="flex flex-col gap-4 md:gap-6">
           <div className="flex flex-col gap-2">
             <label
               htmlFor="nombre"

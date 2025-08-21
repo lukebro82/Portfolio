@@ -13,11 +13,13 @@ export const Header = () => {
       <div className="bg-gray-900 text-white h-[10dvh] flex justify-between flex-row items-center p-4 md:p-20">
         <div className="flex flex-row justify-between items-center max-w-6xl mx-auto w-full">
           <div className="flex flex-row gap-5 items-center">
-            <img
-              src="https://avatars.githubusercontent.com/u/109926314?v=4&size=64"
-              alt=""
-              className="rounded-full w-10 h-10 md:w-16 md:h-16"
-            />
+            <Link to="/">
+              <img
+                src="https://avatars.githubusercontent.com/u/109926314?v=4&size=64"
+                alt=""
+                className="rounded-full w-10 h-10 md:w-16 md:h-16"
+              />
+            </Link>
             <span className="text-[16px] md:text-[20px]">
               Lucas Emanuel Ricci
             </span>

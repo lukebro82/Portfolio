@@ -28,21 +28,21 @@ export const Header = () => {
           {/* Menú hamburguesa para mobile */}
           <button
             onClick={toggleMenu}
-            className="md:hidden flex flex-col justify-center items-center w-8 h-8 relative"
+            className="md:hidden flex flex-col justify-center items-center w-10 h-10 relative"
           >
             <span
-              className={`block w-6 h-0.5 bg-white transition-all duration-300 absolute ${
-                isMenuOpen ? "rotate-45" : "translate-y-0"
+              className={`block w-6 h-0.5 bg-white transition-all duration-300 absolute left-2 top-1/2 -translate-y-1/2 ${
+                isMenuOpen ? "rotate-45" : "-translate-y-2"
               }`}
             ></span>
             <span
-              className={`block w-6 h-0.5 bg-white transition-all duration-300 absolute ${
-                isMenuOpen ? "opacity-0" : "translate-y-2"
+              className={`block w-6 h-0.5 bg-white transition-all duration-300 absolute left-2 top-1/2 -translate-y-1/2 ${
+                isMenuOpen ? "opacity-0" : ""
               }`}
             ></span>
             <span
-              className={`block w-6 h-0.5 bg-white transition-all duration-300 absolute ${
-                isMenuOpen ? "-rotate-45" : "translate-y-4"
+              className={`block w-6 h-0.5 bg-white transition-all duration-300 absolute left-2 top-1/2 -translate-y-1/2 ${
+                isMenuOpen ? "-rotate-45" : "translate-y-2"
               }`}
             ></span>
           </button>

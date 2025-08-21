@@ -40,7 +40,7 @@ export const MainPage = () => {
           Soy desarrollador Fullstack apasionado por crear aplicaciones modernas
           y eficientes. <br className="hidden md:block"></br>
           Trabajo con tecnologías como JavaScript, TypeScript, React, Node.js,
-          Express, PostgreSQL, MongoDB y Zustand.
+          Express, Next.js, PostgreSQL, MongoDB y Tailwind CSS.
         </p>
 
         {/* Contenedor de la animación */}

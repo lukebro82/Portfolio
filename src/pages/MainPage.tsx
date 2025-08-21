@@ -30,13 +30,13 @@ export const MainPage = () => {
   return (
     <div className="bg-gray-900 flex-1 text-white flex flex-col md:flex-row justify-center gap-4 md:gap-10">
       <div className="flex flex-col gap-6 md:gap-8 p-6 md:p-20 max-w-6xl">
-        <h1 className="text-xl md:text-2xl uppercase font-bold text-pink-600 text-center md:text-left">
+        <h1 className="text-2xl md:text-2xl uppercase font-bold text-pink-600 text-center md:text-left">
           Hola, soy Lucas Ricci
         </h1>
-        <span className="text-3xl md:text-6xl font-semibold mr-0 md:mr-6 text-center md:text-left">
+        <span className="text-4xl md:text-6xl font-semibold mr-0 md:mr-6 text-center md:text-left">
           Desarrollador Fullstack
         </span>
-        <p className="text-gray-300 text-lg md:text-2xl leading-relaxed text-center md:text-left">
+        <p className="text-gray-300 text-xl md:text-2xl leading-relaxed text-center md:text-left">
           Soy desarrollador Fullstack apasionado por crear aplicaciones modernas
           y eficientes. <br className="hidden md:block"></br>
           Trabajo con tecnologías como JavaScript, TypeScript, React, Node.js,
@@ -45,7 +45,7 @@ export const MainPage = () => {
 
         {/* Contenedor de la animación */}
         <div className="overflow-hidden mt-4">
-          <div className="flex animate-scroll gap-12 items-center">
+          <div className="flex animate-scroll gap-6 md:gap-12 items-center">
             {/* Primera serie de logos */}
             {logos.map((logo, index) => (
               <img

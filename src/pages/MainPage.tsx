@@ -1,3 +1,5 @@
+import Marquee from "react-fast-marquee";
+
 import jsLogo from "../assets/javascript.svg";
 import tsLogo from "../assets/typescript-svgrepo-com.svg";
 import reactLogo from "../assets/react.svg";
@@ -30,46 +32,37 @@ export const MainPage = () => {
   return (
     <div className="bg-gray-900 flex-1 text-white flex flex-col md:flex-row justify-center gap-4 md:gap-10">
       <div className="flex flex-col gap-6 md:gap-8 p-6 md:p-20 max-w-6xl">
-        <h1 className="text-2xl md:text-2xl uppercase font-bold text-pink-600 text-center md:text-left">
+        <h1 className="text-xl md:text-2xl uppercase font-bold text-pink-600 text-center md:text-left">
           Hola, soy Lucas Ricci
         </h1>
-        <span className="text-4xl md:text-6xl font-semibold mr-0 md:mr-6 text-center md:text-left">
+        <span className="text-3xl md:text-6xl font-semibold mr-0 md:mr-6 text-center md:text-left">
           Desarrollador Fullstack
         </span>
-        <p className="text-gray-300 text-xl md:text-2xl leading-relaxed text-center md:text-left">
+        <p className="text-gray-300 text-lg md:text-2xl leading-relaxed text-center md:text-left">
           Soy desarrollador Fullstack apasionado por crear aplicaciones modernas
           y eficientes. <br className="hidden md:block"></br>
           Trabajo con tecnologías como JavaScript, TypeScript, React, Node.js,
-          Express, Next.js, PostgreSQL, MongoDB y Tailwind CSS.
+          Express, PostgreSQL, MongoDB y Zustand.
         </p>
 
-        {/* Contenedor de la animación */}
-        <div className="overflow-hidden mt-4">
-          <div className="flex animate-scroll gap-6 md:gap-12 items-center">
-            {/* Primera serie de logos */}
-            {logos.map((logo, index) => (
-              <img
-                key={`first-${index}`}
-                src={logo.src}
-                alt={logo.alt}
-                className={`h-10 w-10 md:h-14 md:w-14 flex-shrink-0 ${
-                  logo.invert ? "invert" : ""
-                }`}
-              />
-            ))}
-            {/* Segunda serie de logos para el efecto loop */}
-            {logos.map((logo, index) => (
-              <img
-                key={`second-${index}`}
-                src={logo.src}
-                alt={logo.alt}
-                className={`h-10 w-10 md:h-14 md:w-14 flex-shrink-0 ${
-                  logo.invert ? "invert" : ""
-                }`}
-              />
-            ))}
-          </div>
-        </div>
+        {/* Carrusel infinito con react-fast-marquee */}
+        <Marquee
+          pauseOnHover={true}
+          gradient={false}
+          speed={60}
+          className="mt-4"
+        >
+          {logos.map((logo, index) => (
+            <img
+              key={index}
+              src={logo.src}
+              alt={logo.alt}
+              className={`h-10 w-10 md:h-14 md:w-14 mx-3 md:mx-6 ${
+                logo.invert ? "invert" : ""
+              }`}
+            />
+          ))}
+        </Marquee>
       </div>
     </div>
   );

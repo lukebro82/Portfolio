@@ -1,6 +1,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 import argprograma from "../assets/certificadoargprog.jpg";
+import devtallesReact from "../assets/certificatedevtalles.jpg";
 
 export const Estudios = () => {
   type Study = {
@@ -41,7 +42,7 @@ export const Estudios = () => {
       date: "2025",
       description:
         "Curso de React desde fundamentos hasta aspectos técnicos avanzados y despliegues, incorporando librerías adicionales utilizadas en la industria.",
-      img: "https://cdn.filestackcontent.com/Hm8VEeJBSG6xmZfd3sHj?policy=eyJjYWxsIjpbInJlYWQiXSwiZXhwaXJ5IjoxNzU1NjExOTI2LCJwYXRoIjoiLyJ9&signature=dc79f8663e9669a25cc1e74c2c02c1bffd2b0a8ada7c2f0ba70ccd85fb3a9023",
+      img: devtallesReact,
     },
   ];
 

@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 export const Proyectos = () => {
   const proyectos = [
     {
-      title: "Ahocado Game",
+      title: "Ahorcado Game",
       place: "TypeScript | React | Vite",
       description: "Juego del ahorcado",
       github: "https://github.com/lukebro82/ahorcado-game",

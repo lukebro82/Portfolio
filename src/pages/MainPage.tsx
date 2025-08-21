@@ -6,6 +6,9 @@ import expressLogo from "../assets/express-svgrepo-com.svg";
 import pgLogo from "../assets/Postgresql_elephant.svg.png";
 import mongoLogo from "../assets/mongodb-icon.svg";
 import zustandLogo from "../assets/zustand.svg";
+import next from "../assets/next.svg";
+import firebase from "../assets/firebase2.svg";
+import tailwind from "../assets/tailwind.svg";
 
 export const MainPage = () => {
   return (
@@ -41,6 +44,11 @@ export const MainPage = () => {
               className="h-10 w-10 md:h-14 md:w-14"
             />
             <img
+              src={next}
+              alt="Next.js"
+              className="h-10 w-10 md:h-14 md:w-14"
+            />
+            <img
               src={nodeLogo}
               alt="Node.js"
               className="h-10 w-10 md:h-14 md:w-14"
@@ -61,8 +69,18 @@ export const MainPage = () => {
               className="h-10 w-10 md:h-14 md:w-14"
             />
             <img
+              src={firebase}
+              alt="Firebase"
+              className="h-10 w-10 md:h-14 md:w-14"
+            />
+            <img
               src={zustandLogo}
               alt="Zustand"
+              className="h-10 w-10 md:h-14 md:w-14"
+            />
+            <img
+              src={tailwind}
+              alt="Tailwind CSS"
               className="h-10 w-10 md:h-14 md:w-14"
             />
           </div>

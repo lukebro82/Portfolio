@@ -4,7 +4,8 @@ export const sendMail = async (
   from: any,
   tel: any
 ) => {
-  const response = await fetch("https://pet-finder-osj6.onrender.com/mail", {
+  // Usar nuestra API route local para evitar CORS
+  const response = await fetch("/api/contact", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -18,8 +19,8 @@ export const sendMail = async (
   });
 
   if (!response.ok) {
-    const errorText = await response.text();
-    throw new Error(`HTTP ${response.status}: ${errorText}`);
+    const errorData = await response.json();
+    throw new Error(errorData.message || `Error ${response.status}`);
   }
 
   const result = await response.json();

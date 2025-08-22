@@ -27,7 +27,7 @@ export const Contacto = () => {
       return;
     }
 
-    await sendMail("1021096407032922113", mensaje, nombre, email);
+    await sendMail(mensaje, nombre, email);
 
     Swal.fire({
       icon: "success",

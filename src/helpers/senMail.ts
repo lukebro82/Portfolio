@@ -1,28 +1,46 @@
-export const sendMail = async (
-  petid: any,
-  message: string,
-  from: any,
-  tel: any
-) => {
-  const response = await fetch("https://pet-finder-osj6.onrender.com/mail", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      petid,
-      message,
-      from,
-      tel,
-    }),
-  });
+import emailjs from "@emailjs/browser";
 
-  if (!response.ok) {
-    const errorText = await response.text();
-    throw new Error(`HTTP ${response.status}: ${errorText}`);
+export const sendMail = async (message: string, from: any, mail: any) => {
+  try {
+    // Obtener credenciales desde variables de entorno
+    const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+    const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+    const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+
+    // Verificar que las credenciales estén configuradas
+    if (!serviceId || !templateId || !publicKey) {
+      throw new Error(
+        "Credenciales de EmailJS no configuradas. Verifica tu archivo .env"
+      );
+    }
+
+    const templateParams = {
+      from_name: from,
+      from_email: mail,
+      message: message,
+      to_name: "Lucas Ricci",
+      time: new Date().toLocaleString("es-ES", {
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+        hour: "2-digit",
+        minute: "2-digit",
+      }),
+    };
+
+    const result = await emailjs.send(
+      serviceId,
+      templateId,
+      templateParams,
+      publicKey
+    );
+
+    console.log("Email enviado exitosamente:", result);
+    return result;
+  } catch (error) {
+    console.error("Error enviando email:", error);
+    throw new Error(
+      "No se pudo enviar el email. Por favor, intenta nuevamente."
+    );
   }
-
-  const result = await response.json();
-  console.log("mail enviado");
-  return result;
 };

@@ -23,6 +23,7 @@ export const Contacto = () => {
         color: "#ffffff",
         confirmButtonColor: "#2563eb",
       });
+
       return;
     }
 

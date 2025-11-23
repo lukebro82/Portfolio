@@ -50,25 +50,25 @@ export const Header = () => {
           {/* Menú desktop */}
           <div className="hidden md:flex flex-row gap-8 text-[20px]">
             <Link
-              className="hover:text-pink-600 transition-colors duration-200"
+              className="hover:text-primary-pink transition-colors duration-200"
               to="/"
             >
               Home
             </Link>
             <Link
-              className="hover:text-pink-600 transition-colors duration-200"
+              className="hover:text-primary-pink transition-colors duration-200"
               to="/estudios"
             >
               Estudios
             </Link>
             <Link
-              className="hover:text-pink-600 transition-colors duration-200"
+              className="hover:text-primary-pink transition-colors duration-200"
               to="/proyectos"
             >
               Proyectos
             </Link>
             <Link
-              className="hover:text-pink-600 transition-colors duration-200"
+              className="hover:text-primary-pink transition-colors duration-200"
               to="/contacto"
             >
               Contacto

@@ -6,6 +6,8 @@
 @theme {
   --color-primary: #0e141b;
   --color-background: #111621;
+  --color-background-secondary: #1d212c;
+  --color-primary-pink: #d63384;
 }
 
 html,

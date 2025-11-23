@@ -35,7 +35,7 @@ export const Proyectos = () => {
 
   return (
     <div className="bg-background h-[80dvh] text-white flex flex-col items-center py-8 px-6 overflow-y-auto">
-      <h1 className="text-4xl font-bold text-pink-600 mb-8 uppercase tracking-widest">
+      <h1 className="text-4xl font-bold text-primary-pink mb-8 uppercase tracking-widest">
         Mis Proyectos
       </h1>
 
@@ -43,7 +43,7 @@ export const Proyectos = () => {
         {proyectos.map((proyecto, index) => (
           <motion.div
             key={index}
-            className="bg-gray-800 p-6 rounded-2xl shadow-lg hover:shadow-pink-500/40 hover:scale-105 transition-transform cursor-pointer flex flex-col justify-between"
+            className="bg-background-secondary p-6 rounded-2xl shadow-lg hover:shadow-pink-500/40 hover:scale-105 transition-transform cursor-pointer flex flex-col justify-between"
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.2, delay: index * 0.1 }}
@@ -53,7 +53,7 @@ export const Proyectos = () => {
             }}
           >
             <div>
-              <h2 className="text-xl font-bold text-pink-400">
+              <h2 className="text-xl font-bold text-primary-pink">
                 {proyecto.title}
               </h2>
               <p className="text-gray-400">{proyecto.place}</p>
@@ -73,7 +73,7 @@ export const Proyectos = () => {
                 href={proyecto.web}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-3 py-1 bg-pink-600 hover:bg-pink-500 text-white rounded-lg text-sm"
+                className="px-3 py-1 bg-primary-pink hover:bg-[#E65098] text-white rounded-lg text-sm"
               >
                 Ver Web
               </a>

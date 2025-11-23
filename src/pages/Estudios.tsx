@@ -37,18 +37,18 @@ export const Estudios = () => {
       img: "https://res.cloudinary.com/apx/image/upload/w_1200/co_white,g_south_east,l_text:Arial_18_bold:agosto%202024,x_411,y_150/co_white,g_north,l_text:Arial_60_bold:Lucas%20Emanuel%20Ricci,y_240/f_auto,q_auto/v1/apx2/certificates/web-1_-_certificate_xgda8n.png",
     },
     {
-      title: "React: De cero a experto (Hooks y MERN)",
+      title: "React: De cero a experto",
       place: "DevTalles",
       date: "2025",
       description:
-        "Curso de React desde fundamentos hasta aspectos técnicos avanzados y despliegues, incorporando librerías adicionales utilizadas en la industria.",
+        "Curso de React de fundamentos hasta aspectos técnicos avanzados y despliegues, incorporando librerías adicionales utilizadas en la industria.",
       img: devtallesReact,
     },
   ];
 
   return (
     <div className="bg-background h-[80dvh] text-white flex flex-col items-center py-4 px-6 overflow-y-auto">
-      <h1 className="text-4xl font-bold text-pink-600 mb-6 uppercase tracking-widest">
+      <h1 className="text-4xl font-bold text-primary-pink mb-6 uppercase tracking-widest">
         Mis Estudios
       </h1>
 
@@ -57,7 +57,7 @@ export const Estudios = () => {
         {studies.map((study: any, index) => (
           <motion.div
             key={index}
-            className="bg-gray-800 p-6 rounded-2xl shadow-lg hover:shadow-pink-500/40 hover:scale-105 transition-transform cursor-pointer"
+            className="bg-background-secondary p-6 rounded-2xl shadow-lg hover:shadow-pink-500/40 hover:scale-105 transition-transform cursor-pointer"
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.2, delay: index * 0.1 }}
@@ -67,7 +67,9 @@ export const Estudios = () => {
             }}
             onClick={() => setSelected(study)}
           >
-            <h2 className="text-xl font-bold text-pink-400">{study.title}</h2>
+            <h2 className="text-xl font-bold text-primary-pink">
+              {study.title}
+            </h2>
             <p className="text-gray-400">{study.place}</p>
             <p className="text-sm text-gray-500 mb-4">{study.date}</p>
             <p className="text-gray-300">{study.description}</p>
@@ -92,7 +94,7 @@ export const Estudios = () => {
               exit={{ scale: 0.8 }}
               onClick={(e) => e.stopPropagation()}
             >
-              <h2 className="text-2xl font-bold text-pink-400 mb-2">
+              <h2 className="text-2xl font-bold text-primary-pink mb-2">
                 {selected.title}
               </h2>
               <p className="text-gray-400">{selected.place}</p>
@@ -103,7 +105,7 @@ export const Estudios = () => {
                 className="rounded-lg border border-gray-700"
               />
               <button
-                className="mt-4 px-4 py-2 bg-pink-600 hover:bg-pink-500 rounded-lg text-white"
+                className="mt-4 px-4 py-2 bg-primary-pink hover:bg-[#E65098] rounded-lg text-white"
                 onClick={() => setSelected(null)}
               >
                 Cerrar

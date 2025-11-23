@@ -48,16 +48,16 @@ export const Estudios = () => {
 
   return (
     <div className="bg-background h-[80dvh] text-white flex flex-col items-center py-4 px-6 overflow-y-auto">
-      <h1 className="text-4xl font-bold text-primary-pink mb-6 uppercase tracking-widest">
+      <h1 className="text-4xl md:text-5xl font-bold mb-6 uppercase tracking-widest text-white border-b-2 border-primary-pink pb-1 w-fit">
         Mis Estudios
       </h1>
 
       {/* GRID */}
-      <div className="grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-8 max-w-6xl">
+      <div className="grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-10 max-w-6xl">
         {studies.map((study: any, index) => (
           <motion.div
             key={index}
-            className="bg-background-secondary p-6 rounded-2xl shadow-lg hover:shadow-pink-500/40 hover:scale-105 transition-transform cursor-pointer"
+            className="bg-background-secondary p-6 rounded-2xl shadow-lg hover:shadow-blue-700/40 hover:scale-105 transition-transform cursor-pointer"
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.2, delay: index * 0.1 }}
@@ -67,7 +67,7 @@ export const Estudios = () => {
             }}
             onClick={() => setSelected(study)}
           >
-            <h2 className="text-xl font-bold text-primary-pink">
+            <h2 className="text-xl md:text-2xl font-bold text-white">
               {study.title}
             </h2>
             <p className="text-gray-400">{study.place}</p>
@@ -94,7 +94,7 @@ export const Estudios = () => {
               exit={{ scale: 0.8 }}
               onClick={(e) => e.stopPropagation()}
             >
-              <h2 className="text-2xl font-bold text-primary-pink mb-2">
+              <h2 className="text-xl md:2xl font-bold text-white mb-2">
                 {selected.title}
               </h2>
               <p className="text-gray-400">{selected.place}</p>
@@ -105,7 +105,7 @@ export const Estudios = () => {
                 className="rounded-lg border border-gray-700"
               />
               <button
-                className="mt-4 px-4 py-2 bg-primary-pink hover:bg-[#E65098] rounded-lg text-white"
+                className="mt-4 px-4 p-1.5 bg-blue-600 hover:bg-blue-700 text-white  rounded-xl text-base"
                 onClick={() => setSelected(null)}
               >
                 Cerrar

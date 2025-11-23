@@ -10,14 +10,14 @@ export const Header = () => {
 
   return (
     <>
-      <div className="bg-background text-white h-[10dvh] flex justify-between flex-row items-center p-4 md:p-12">
+      <div className="bg-background text-white h-[10dvh] flex justify-between flex-row items-center p-4 md:p-12 ">
         <div className="flex flex-row justify-between items-center max-w-6xl mx-auto w-full">
           <div className="flex flex-row gap-5 items-center">
             <Link to="/">
               <img
                 src="https://avatars.githubusercontent.com/u/109926314?v=4&size=64"
                 alt=""
-                className="rounded-full w-10 h-10 md:w-16 md:h-16"
+                className="rounded-full w-10 h-10 md:w-14 md:h-14"
               />
             </Link>
             <span className="text-[16px] md:text-[20px]">
@@ -48,7 +48,7 @@ export const Header = () => {
           </button>
 
           {/* Menú desktop */}
-          <div className="hidden md:flex flex-row gap-8 text-[20px]">
+          <div className="hidden md:flex flex-row gap-8 text-[20px] transition-colors">
             <Link
               className="hover:text-primary-pink transition-colors duration-200"
               to="/"
@@ -78,34 +78,34 @@ export const Header = () => {
 
         {/* Menú mobile */}
         <div
-          className={`md:hidden fixed top-[12dvh] left-0 right-0 bg-background transition-all duration-300 z-[9999] ${
+          className={`md:hidden fixed top-[14dvh] left-0 right-0 bg-background transition-all duration-300 ease-in-out z-[9999] ${
             isMenuOpen ? "opacity-100 visible" : "opacity-0 invisible"
           }`}
         >
-          <div className="flex flex-col gap-4 p-4 text-[18px]">
+          <div className="flex flex-col gap-6 p-6 border-t border-white/10">
             <Link
-              className="hover:text-pink-600 transition-colors duration-200 py-2"
+              className="hover:text-primary-pink transition-colors duration-200 py-2"
               to="/"
               onClick={() => setIsMenuOpen(false)}
             >
               Home
             </Link>
             <Link
-              className="hover:text-pink-600 transition-colors duration-200 py-2"
+              className="hover:text-primary-pink transition-colors duration-200 py-2"
               to="/estudios"
               onClick={() => setIsMenuOpen(false)}
             >
               Estudios
             </Link>
             <Link
-              className="hover:text-pink-600 transition-colors duration-200 py-2"
+              className="hover:text-primary-pink transition-colors duration-200 py-2"
               to="/proyectos"
               onClick={() => setIsMenuOpen(false)}
             >
               Proyectos
             </Link>
             <Link
-              className="hover:text-pink-600 transition-colors duration-200 py-2"
+              className="hover:text-primary-pink transition-colors duration-200 py-2"
               to="/contacto"
               onClick={() => setIsMenuOpen(false)}
             >

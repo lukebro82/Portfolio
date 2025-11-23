@@ -35,7 +35,7 @@ export const Proyectos = () => {
 
   return (
     <div className="bg-background h-[80dvh] text-white flex flex-col items-center py-8 px-6 overflow-y-auto">
-      <h1 className="text-4xl font-bold text-primary-pink mb-8 uppercase tracking-widest">
+      <h1 className="text-4xl md:text-5xl font-bold mb-6 uppercase tracking-widest text-white border-b-2 border-primary-pink pb-1 w-fit">
         Mis Proyectos
       </h1>
 
@@ -43,7 +43,7 @@ export const Proyectos = () => {
         {proyectos.map((proyecto, index) => (
           <motion.div
             key={index}
-            className="bg-background-secondary p-6 rounded-2xl shadow-lg hover:shadow-pink-500/40 hover:scale-105 transition-transform cursor-pointer flex flex-col justify-between"
+            className="bg-background-secondary p-6 rounded-2xl shadow-lg hover:shadow-blue-700/40 hover:scale-105 transition-transform cursor-pointer flex flex-col justify-between"
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.2, delay: index * 0.1 }}
@@ -53,7 +53,7 @@ export const Proyectos = () => {
             }}
           >
             <div>
-              <h2 className="text-xl font-bold text-primary-pink">
+              <h2 className="text-xl md:text-2xl font-bold text-white">
                 {proyecto.title}
               </h2>
               <p className="text-gray-400">{proyecto.place}</p>
@@ -64,16 +64,14 @@ export const Proyectos = () => {
               <a
                 href={proyecto.github}
                 target="_blank"
-                rel="noopener noreferrer"
-                className="px-3 py-1 bg-gray-700 hover:bg-gray-600 text-white rounded-lg text-sm"
+                className="px-4 p-1.5 bg-[#343A40] hover:bg-[#495057] text-white rounded-xl text-base"
               >
                 GitHub
               </a>
               <a
                 href={proyecto.web}
                 target="_blank"
-                rel="noopener noreferrer"
-                className="px-3 py-1 bg-primary-pink hover:bg-[#E65098] text-white rounded-lg text-sm"
+                className="px-4 p-1.5 bg-blue-600 hover:bg-blue-700 text-white  rounded-xl text-base"
               >
                 Ver Web
               </a>

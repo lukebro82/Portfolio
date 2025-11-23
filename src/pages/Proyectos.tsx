@@ -34,7 +34,7 @@ export const Proyectos = () => {
   ];
 
   return (
-    <div className="bg-gray-900 h-[80dvh] text-white flex flex-col items-center py-8 px-6 overflow-y-auto">
+    <div className="bg-background h-[80dvh] text-white flex flex-col items-center py-8 px-6 overflow-y-auto">
       <h1 className="text-4xl font-bold text-pink-600 mb-8 uppercase tracking-widest">
         Mis Proyectos
       </h1>

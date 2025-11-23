@@ -10,7 +10,7 @@ export const Header = () => {
 
   return (
     <>
-      <div className="bg-gray-900 text-white h-[10dvh] flex justify-between flex-row items-center p-4 md:p-20">
+      <div className="bg-background text-white h-[10dvh] flex justify-between flex-row items-center p-4 md:p-12">
         <div className="flex flex-row justify-between items-center max-w-6xl mx-auto w-full">
           <div className="flex flex-row gap-5 items-center">
             <Link to="/">
@@ -78,7 +78,7 @@ export const Header = () => {
 
         {/* Menú mobile */}
         <div
-          className={`md:hidden fixed top-[10dvh] left-0 right-0 bg-gray-900 transition-all duration-300 z-[9999] ${
+          className={`md:hidden fixed top-[12dvh] left-0 right-0 bg-background transition-all duration-300 z-[9999] ${
             isMenuOpen ? "opacity-100 visible" : "opacity-0 invisible"
           }`}
         >

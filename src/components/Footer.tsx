@@ -4,7 +4,7 @@ import mail from "../assets/email.svg";
 
 export const Footer = () => {
   return (
-    <div className="bg-gray-900 h-[10dvh] text-white flex justify-around flex-row items-center border-t border-gray-700 max-w-full flex-shrink-0">
+    <div className="bg-background h-[10dvh] text-white flex justify-around flex-row items-center border-t border-gray-700 max-w-full flex-shrink-0">
       <div>© 2025 - Lucas Ricci</div>
       <div className="flex flex-row gap-4 md:gap-6 items-center">
         <a
@@ -15,7 +15,7 @@ export const Footer = () => {
           <img
             src={mail}
             alt="Email"
-            className="w-6 h-6 md:w-9 md:h-9 invert"
+            className="w-6 h-6  invert hover:opacity-80 transition-opacity"
           />
         </a>
         <a
@@ -25,7 +25,11 @@ export const Footer = () => {
           className="hover:scale-110 transition-transform"
         >
           {" "}
-          <img src={cat} alt="GitHub" className="w-6 h-6 md:w-8 md:h-8" />
+          <img
+            src={cat}
+            alt="GitHub"
+            className="h-6 w-6  hover:opacity-80 transition-opacity"
+          />
         </a>
         <a
           href="https://www.linkedin.com/in/lucas-ricci82/"
@@ -36,7 +40,7 @@ export const Footer = () => {
           <img
             src={linkedin}
             alt="LinkedIn"
-            className="h-6 w-6 md:h-8 md:w-8 invert hover:opacity-80 transition-opacity"
+            className="h-6 w-6 invert hover:opacity-80 transition-opacity"
           />
         </a>
       </div>

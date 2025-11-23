@@ -19,6 +19,7 @@ export const MainPage = () => {
     { src: tsLogo, alt: "TypeScript" },
     { src: reactLogo, alt: "React" },
     { src: next, alt: "Next.js", invert: true },
+    { src: tailwind, alt: "Tailwind CSS" },
     { src: nodeLogo, alt: "Node.js" },
     { src: expressLogo, alt: "Express", invert: true },
     { src: pgLogo, alt: "PostgreSQL" },
@@ -26,31 +27,31 @@ export const MainPage = () => {
     { src: firebase, alt: "Firebase" },
     { src: zustandLogo, alt: "Zustand" },
     { src: redux, alt: "Redux" },
-    { src: tailwind, alt: "Tailwind CSS" },
   ];
 
   return (
-    <div className="bg-gray-900 flex-1 text-white flex flex-col md:flex-row justify-center gap-4 md:gap-10">
+    <div className="bg-background flex-1 text-white flex flex-col md:flex-row justify-center gap-4 md:gap-10">
       <div className="flex flex-col gap-6 md:gap-8 p-6 md:p-20 max-w-6xl">
-        <h1 className="text-xl md:text-2xl uppercase font-bold text-pink-600 text-center md:text-left">
+        <h1 className="text-2xl md:text-2xl uppercase font-bold text-pink-600 text-left">
           Hola, soy Lucas Ricci
         </h1>
-        <span className="text-3xl md:text-6xl font-semibold mr-0 md:mr-6 text-center md:text-left">
+        <span className="text-3xl md:text-6xl font-semibold mr-0 md:mr-6 text-left">
           Desarrollador Fullstack
         </span>
-        <p className="text-gray-300 text-lg md:text-2xl leading-relaxed text-center md:text-left">
-          Soy desarrollador Fullstack apasionado por crear aplicaciones modernas
-          y eficientes. <br className="hidden md:block"></br>
-          Trabajo con tecnologías como JavaScript, TypeScript, React, Node.js,
-          Express, PostgreSQL, MongoDB y Zustand.
+        <p className="text-gray-300 text-lg md:text-2xl leading-relaxed text-left">
+          Soy desarrollador Fullstack enfocado en crear aplicaciones modernas y
+          eficientes.
+          <br />
+          Uso de JavaScript y TypeScript, React y Next.js en el frontend con
+          Tailwind CSS, Node.js y Express.js en el backend, Zustand para manejo
+          de estado y PostgreSQL, MongoDB y Firebase como bases de datos.
         </p>
 
-        {/* Carrusel infinito con react-fast-marquee */}
         <Marquee
           pauseOnHover={true}
           gradient={false}
           speed={60}
-          className="mt-4"
+          className="mt-4 md:mt-8"
         >
           {logos.map((logo, index) => (
             <img

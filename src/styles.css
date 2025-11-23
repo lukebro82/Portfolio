@@ -3,6 +3,11 @@
   box-sizing: border-box;
 }
 
+@theme {
+  --color-primary: #0e141b;
+  --color-background: #111621;
+}
+
 html,
 body {
   height: 100%;

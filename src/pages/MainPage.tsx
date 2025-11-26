@@ -31,8 +31,8 @@ export const MainPage = () => {
 
   return (
     <div className="bg-background flex-1 text-white flex flex-col md:flex-row justify-center gap-4 md:gap-10">
-      <div className="flex flex-col gap-6 md:gap-8 p-6 md:p-20 max-w-6xl">
-        <h1 className="text-2xl md:text-2xl uppercase font-bold text-primary-pink text-left">
+      <div className="flex flex-col gap-8 md:gap-8 p-6 md:p-20 max-w-6xl">
+        <h1 className="text-3xl md:text-2xl uppercase font-bold text-primary-pink text-left">
           Hola, soy Lucas Ricci
         </h1>
         <span className="text-3xl md:text-6xl font-semibold mr-0 md:mr-6 text-left">

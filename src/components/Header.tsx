@@ -78,34 +78,34 @@ export const Header = () => {
 
         {/* Menú mobile */}
         <div
-          className={`md:hidden fixed top-[14dvh] left-0 right-0 bg-background transition-all duration-300 ease-in-out z-[9999] ${
+          className={`md:hidden fixed top-[10dvh] left-0 right-0  bg-background transition-all duration-300 ease-in-out z-[9999] ${
             isMenuOpen ? "opacity-100 visible" : "opacity-0 invisible"
           }`}
         >
           <div className="flex flex-col gap-6 p-6 border-t border-white/10">
             <Link
-              className="hover:text-primary-pink transition-colors duration-200 py-2"
+              className="py-2 text-xl"
               to="/"
               onClick={() => setIsMenuOpen(false)}
             >
               Home
             </Link>
             <Link
-              className="hover:text-primary-pink transition-colors duration-200 py-2"
+              className="py-2 text-xl"
               to="/estudios"
               onClick={() => setIsMenuOpen(false)}
             >
               Estudios
             </Link>
             <Link
-              className="hover:text-primary-pink transition-colors duration-200 py-2"
+              className="py-2 text-xl"
               to="/proyectos"
               onClick={() => setIsMenuOpen(false)}
             >
               Proyectos
             </Link>
             <Link
-              className="hover:text-primary-pink transition-colors duration-200 py-2"
+              className="py-2 text-xl"
               to="/contacto"
               onClick={() => setIsMenuOpen(false)}
             >

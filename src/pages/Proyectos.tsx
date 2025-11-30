@@ -3,6 +3,13 @@ import { motion } from "framer-motion";
 export const Proyectos = () => {
   const proyectos = [
     {
+      title: "Mutual 30 de Octubre",
+      place: "JavaScript | Parcel",
+      description: "Pagina web para la mutual 30 de Octubre",
+      github: "https://github.com/lukebro82/mutual",
+      web: "https://mutual30.com.ar",
+    },
+    {
       title: "Ahorcado Game",
       place: "TypeScript | React | Vite",
       description: "Juego del ahorcado",
@@ -29,7 +36,7 @@ export const Proyectos = () => {
       description:
         "Aplicación web para buscar información de héroes de Marvel y DC.",
       github: "https://github.com/lukebro82/Heroes-App",
-      web: "",
+      web: "https://heroes-searchapp.netlify.app",
     },
   ];
 

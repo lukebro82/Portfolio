@@ -4,7 +4,7 @@ import mail from "../assets/email.svg";
 
 export const Footer = () => {
   return (
-    <div className="bg-background h-[10dvh] text-white flex justify-around flex-row items-center border-t border-gray-700 max-w-full flex-shrink-0">
+    <div className="bg-background h-[8dvh] text-white flex justify-around flex-row items-center border-t border-gray-700 max-w-full flex-shrink-0">
       <div>© 2025 - Lucas Ricci</div>
       <div className="flex flex-row gap-4 md:gap-6 items-center">
         <a

@@ -41,7 +41,7 @@ export const Contacto = () => {
     onResetForm();
   };
   return (
-    <div className="bg-background h-[80dvh] text-white flex flex-col items-center gap-6 md:gap-10 p-6 md:p-10 overflow-y-auto">
+    <div className="bg-background h-[82dvh] text-white flex flex-col items-center gap-6 md:gap-10 p-6 md:p-10 overflow-y-auto">
       <div className="flex flex-row justify-center gap-6 md:gap-8 p-2 w-full max-w-md">
         <a
           href="https://www.linkedin.com/in/lucas-ricci82/"

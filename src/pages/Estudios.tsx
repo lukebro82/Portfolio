@@ -48,7 +48,7 @@ export const Estudios = () => {
       title: "Software Developer",
       place: "APX Nivel 3",
       date: "2024",
-      description: "Nivel 3 y finalde la carrera de Software Developer",
+      description: "Nivel 3 y final de la carrera de Software Developer",
       img: "https://res.cloudinary.com/apx/image/upload/w_1200/co_white,g_south_east,l_text:Arial_18_bold:diciembre%202025,x_411,y_150/co_white,g_north,l_text:Arial_60_bold:Lucas%20Emanuel%20Ricci,y_240/f_auto,q_auto/v1/apx2/certificates/web-2_-_certificate_rk3uwu.png",
     },
   ];

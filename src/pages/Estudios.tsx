@@ -31,44 +31,54 @@ export const Estudios = () => {
         </p>
       </div>
 
-      {/* GRID */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      {/* TIMELINE */}
+      <ol className="relative flex flex-col gap-8 border-l border-white/15 ml-2 md:ml-3">
         {STUDIES.map((study, index) => (
-          <motion.button
-            type="button"
+          <motion.li
             key={`${study.title}-${study.date}`}
-            className="text-left bg-background-secondary hover:bg-surface-hover p-6 rounded-2xl border border-white/10 hover:border-primary-pink/40 transition-colors cursor-pointer flex flex-col justify-between gap-5 group focus:outline-none focus:ring-2 focus:ring-primary-pink"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.25, delay: index * 0.06 }}
-            onClick={() => setSelected(study)}
+            className="relative pl-6 md:pl-10"
+            initial={{ opacity: 0, x: -16 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.25, delay: index * 0.08 }}
           >
-            <div className="flex flex-col gap-2.5">
-              <div className="flex items-center justify-between gap-2">
-                <span className="text-xs font-mono text-primary-pink-hover bg-primary-pink/10 border border-primary-pink/25 px-2.5 py-0.5 rounded-md">
-                  {study.place}
-                </span>
-                <span className="text-xs font-mono text-slate-400">
-                  {study.date}
+            <span
+              aria-hidden="true"
+              className="absolute -left-[7px] top-7 w-3.5 h-3.5 rounded-full bg-primary-pink border-4 border-background-primary ring-1 ring-primary-pink/50"
+            />
+            <button
+              type="button"
+              onClick={() => setSelected(study)}
+              className="w-full text-left bg-background-secondary hover:bg-surface-hover p-5 rounded-2xl border border-white/10 hover:border-primary-pink/40 transition-colors cursor-pointer flex flex-col sm:flex-row gap-5 group focus:outline-none focus:ring-2 focus:ring-primary-pink"
+            >
+              <img
+                src={study.img}
+                alt=""
+                loading="lazy"
+                className="w-full sm:w-40 h-28 object-cover object-top rounded-lg border border-white/10 bg-black/40 opacity-70 group-hover:opacity-100 transition-opacity shrink-0"
+              />
+              <div className="flex flex-col gap-2 flex-1">
+                <div className="flex items-center justify-between gap-2">
+                  <span className="text-xs font-mono text-primary-pink-hover bg-primary-pink/10 border border-primary-pink/25 px-2.5 py-0.5 rounded-md">
+                    {study.place}
+                  </span>
+                  <span className="text-xs font-mono text-slate-400">
+                    {study.date}
+                  </span>
+                </div>
+                <h2 className="text-lg md:text-xl font-bold text-white group-hover:text-primary-pink-hover transition-colors">
+                  {study.title}
+                </h2>
+                <p className="text-slate-300 text-sm leading-relaxed">
+                  {study.description}
+                </p>
+                <span className="mt-auto text-xs font-mono text-slate-400 group-hover:text-white transition-colors">
+                  Ver certificado ↗
                 </span>
               </div>
-
-              <h2 className="text-xl font-bold text-white group-hover:text-primary-pink-hover transition-colors pt-1">
-                {study.title}
-              </h2>
-
-              <p className="text-slate-300 text-sm leading-relaxed">
-                {study.description}
-              </p>
-            </div>
-
-            <div className="flex items-center justify-between pt-4 border-t border-white/10 text-xs font-mono text-slate-400 group-hover:text-white transition-colors w-full">
-              <span>Ver certificado</span>
-              <span aria-hidden="true">↗</span>
-            </div>
-          </motion.button>
+            </button>
+          </motion.li>
         ))}
-      </div>
+      </ol>
 
       {/* MODAL */}
       <AnimatePresence>

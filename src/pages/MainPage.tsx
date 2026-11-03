@@ -1,21 +1,11 @@
 import { Link } from "react-router";
-import Marquee from "react-fast-marquee";
 import { motion } from "motion/react";
-import { TECH_LOGOS } from "../data/portfolioData";
+import { TECH_LOGOS, type TechLogo } from "../data/portfolioData";
 
-const STACK_CATEGORIES = [
-  {
-    title: "Frontend",
-    items: ["TypeScript", "JavaScript", "React", "Next.js", "Tailwind CSS"],
-  },
-  {
-    title: "Backend & Datos",
-    items: ["Node.js", "Express.js", "PostgreSQL", "MongoDB", "Firebase"],
-  },
-  {
-    title: "Estado & Arquitectura",
-    items: ["Zustand", "Redux Toolkit", "REST APIs", "Git & Deploy"],
-  },
+const CATEGORIES: TechLogo["category"][] = [
+  "Frontend",
+  "Backend & DB",
+  "Estado & Cloud",
 ];
 
 export const MainPage = () => {
@@ -69,71 +59,56 @@ export const MainPage = () => {
           >
             Explorar Proyectos
           </Link>
-          <Link
-            to="/contacto"
+          <a
+            href="/cv-lucas-ricci.pdf"
+            download="CV-Lucas-Ricci.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
             className="px-6 py-3 rounded-xl bg-background-secondary hover:bg-surface-hover text-slate-200 border border-white/10 hover:border-white/20 font-medium text-sm md:text-base transition-all"
           >
-            Contactarme
-          </Link>
+            Descargar CV ↓
+          </a>
           <Link
-            to="/estudios"
+            to="/contacto"
             className="px-4 py-3 text-slate-400 hover:text-white font-medium text-sm md:text-base transition-colors"
           >
-            Ver certificaciones →
+            Contactarme →
           </Link>
         </div>
       </motion.div>
 
       {/* Bloques de Stack por Categoría */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-        {STACK_CATEGORIES.map((category) => (
-          <div
-            key={category.title}
-            className="bg-background-secondary/80 border border-white/10 rounded-2xl p-5 flex flex-col gap-3"
-          >
-            <h2 className="text-sm font-mono text-primary-pink-hover tracking-wide">
-              {category.title}
-            </h2>
-            <div className="flex flex-wrap gap-2">
-              {category.items.map((item) => (
-                <span
-                  key={item}
-                  className="px-2.5 py-1 rounded-md bg-white/5 border border-white/10 text-xs md:text-sm text-slate-200 font-mono"
-                >
-                  {item}
-                </span>
-              ))}
-            </div>
-          </div>
-        ))}
-      </div>
-
-      {/* Carrusel de Tecnologías */}
-      <div className="pt-2 border-t border-white/10">
-        <Marquee
-          pauseOnHover={true}
-          gradient={false}
-          speed={45}
-          className="py-3"
-        >
-          {TECH_LOGOS.map((logo) => (
+        {CATEGORIES.map((category) => {
+          const items = TECH_LOGOS.filter((logo) => logo.category === category);
+          return (
             <div
-              key={logo.alt}
-              className="flex items-center gap-3 mx-5 md:mx-8 px-4 py-2 rounded-xl bg-background-secondary/60 border border-white/5"
+              key={category}
+              className="bg-background-secondary/80 border border-white/10 rounded-2xl p-5 flex flex-col gap-3.5"
             >
-              <img
-                src={logo.src}
-                alt={logo.alt}
-                className={`h-7 w-7 md:h-8 md:w-8 object-contain ${
-                  logo.invert ? "invert" : ""
-                }`}
-              />
-              <span className="text-sm font-mono text-slate-300">
-                {logo.alt}
-              </span>
+              <h2 className="text-sm font-mono text-primary-pink-hover tracking-wide">
+                {category}
+              </h2>
+              <div className="flex flex-wrap gap-2.5">
+                {items.map((logo) => (
+                  <span
+                    key={logo.alt}
+                    className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-xs md:text-sm text-slate-200 font-mono"
+                  >
+                    <img
+                      src={logo.src}
+                      alt={logo.alt}
+                      className={`w-4 h-4 md:w-5 md:h-5 object-contain ${
+                        logo.invert ? "invert" : ""
+                      }`}
+                    />
+                    {logo.alt}
+                  </span>
+                ))}
+              </div>
             </div>
-          ))}
-        </Marquee>
+          );
+        })}
       </div>
     </section>
   );

@@ -6,6 +6,8 @@ import mailIcon from "../assets/email.svg";
 import { useForm } from "../hooks/useForm";
 import { sendMail } from "../helpers/sendMail";
 
+const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+
 export const Contacto = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -23,6 +25,18 @@ export const Contacto = () => {
         icon: "warning",
         title: "Campos incompletos",
         text: "Por favor, completá tu nombre, email y mensaje antes de enviar.",
+        background: "#131924",
+        color: "#ffffff",
+        confirmButtonColor: "#e11d74",
+      });
+      return;
+    }
+
+    if (!EMAIL_REGEX.test(email.trim())) {
+      Swal.fire({
+        icon: "warning",
+        title: "Email inválido",
+        text: "Por favor, ingresá un email válido (ej: nombre@dominio.com).",
         background: "#131924",
         color: "#ffffff",
         confirmButtonColor: "#e11d74",

@@ -141,7 +141,7 @@ export const STUDIES: Study[] = [
   {
     title: "Software Developer (Nivel 0 y 1)",
     place: "APX",
-    date: "2025",
+    date: "2024",
     description:
       "Fundamentos de ingeniería de software, algoritmos, estructuras de datos, Git y programación con JavaScript y TypeScript.",
     img: "https://res.cloudinary.com/apx/image/upload/w_1200/co_white,g_south_east,l_text:Arial_18_bold:agosto%202025,x_411,y_150/co_white,g_north,l_text:Arial_60_bold:Lucas%20Emanuel%20Ricci,y_240/f_auto,q_auto/v1/apx2/certificates/dev-1_-_certificate_goaarb.png",

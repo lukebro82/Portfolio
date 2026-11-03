@@ -43,7 +43,7 @@ export const Estudios = () => {
           >
             <span
               aria-hidden="true"
-              className="absolute -left-[7px] top-7 w-3.5 h-3.5 rounded-full bg-primary-pink border-4 border-background-primary ring-1 ring-primary-pink/50"
+              className="absolute -left-[7px] top-7 w-3.5 h-3.5 rounded-full bg-primary-pink border-4 border-background ring-1 ring-primary-pink/50"
             />
             <button
               type="button"

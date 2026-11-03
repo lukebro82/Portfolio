@@ -62,8 +62,6 @@ export const MainPage = () => {
           <a
             href="/CV.pdf"
             download="CV-Lucas-Ricci.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
             className="px-6 py-3 rounded-xl bg-background-secondary hover:bg-surface-hover text-slate-200 border border-white/10 hover:border-white/20 font-medium text-sm md:text-base transition-all"
           >
             Descargar CV ↓

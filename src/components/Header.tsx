@@ -77,10 +77,10 @@ export const Header = () => {
               to={item.to}
               end={item.end}
               className={({ isActive }) =>
-                `px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
+                `px-4 py-2 rounded-lg text-sm font-medium border transition-colors duration-200 ${
                   isActive
-                    ? "bg-primary-pink/15 text-primary-pink-hover border border-primary-pink/30"
-                    : "text-slate-300 hover:text-white hover:bg-white/5"
+                    ? "bg-primary-pink/15 text-primary-pink-hover border-primary-pink/30"
+                    : "border-transparent text-slate-300 hover:text-white hover:bg-white/5"
                 }`
               }
             >

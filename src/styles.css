@@ -16,6 +16,10 @@
   --font-mono: "JetBrains Mono", monospace;
 }
 
+html {
+  scrollbar-gutter: stable;
+}
+
 html,
 body {
   min-height: 100%;

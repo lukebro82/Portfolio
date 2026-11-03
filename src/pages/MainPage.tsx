@@ -60,7 +60,7 @@ export const MainPage = () => {
             Explorar Proyectos
           </Link>
           <a
-            href="/cv-lucas-ricci.pdf"
+            href="/CV.pdf"
             download="CV-Lucas-Ricci.pdf"
             target="_blank"
             rel="noopener noreferrer"

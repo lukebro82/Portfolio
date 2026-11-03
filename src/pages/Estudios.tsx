@@ -1,86 +1,72 @@
-import { motion, AnimatePresence } from "framer-motion";
-import { useState } from "react";
-import argprograma from "../assets/certificadoargprog.jpg";
-import devtallesReact from "../assets/certificatedevtalles.jpg";
+import { motion, AnimatePresence } from "motion/react";
+import { useEffect, useState } from "react";
+import { STUDIES, type Study } from "../data/portfolioData";
 
 export const Estudios = () => {
-  type Study = {
-    title: string;
-    place: string;
-    date: string;
-    description: string;
-    img: string;
-  };
-
   const [selected, setSelected] = useState<Study | null>(null);
 
-  const studies = [
-    {
-      title: "Se Programar",
-      place: "Argentina Programa 4.0",
-      date: "2022",
-      description: "Curso de inicio a la programacion, Javascript, Ruby",
-      img: argprograma,
-    },
-    {
-      title: "Software Developer",
-      place: "APX Nivel 0 y 1",
-      date: "2023",
-      description: "Nivel 1 de la carrera de Software Developer",
-      img: "https://res.cloudinary.com/apx/image/upload/w_1200/co_white,g_south_east,l_text:Arial_18_bold:agosto%202025,x_411,y_150/co_white,g_north,l_text:Arial_60_bold:Lucas%20Emanuel%20Ricci,y_240/f_auto,q_auto/v1/apx2/certificates/dev-1_-_certificate_goaarb.png",
-    },
-    {
-      title: "Software Developer",
-      place: "APX Nivel 2",
-      date: "2024",
-      description: "Nivel 2 de la carrera de Software Developer",
-      img: "https://res.cloudinary.com/apx/image/upload/w_1200/co_white,g_south_east,l_text:Arial_18_bold:agosto%202024,x_411,y_150/co_white,g_north,l_text:Arial_60_bold:Lucas%20Emanuel%20Ricci,y_240/f_auto,q_auto/v1/apx2/certificates/web-1_-_certificate_xgda8n.png",
-    },
-    {
-      title: "React: De cero a experto",
-      place: "DevTalles",
-      date: "2025",
-      description:
-        "Curso de React de fundamentos hasta aspectos técnicos avanzados y despliegues, incorporando librerías adicionales utilizadas en la industria.",
-      img: devtallesReact,
-    },
-    {
-      title: "Software Developer",
-      place: "APX Nivel 3",
-      date: "2025",
-      description: "Nivel 3 y final de la carrera de Software Developer",
-      img: "https://res.cloudinary.com/apx/image/upload/w_1200/co_white,g_south_east,l_text:Arial_18_bold:diciembre%202025,x_411,y_150/co_white,g_north,l_text:Arial_60_bold:Lucas%20Emanuel%20Ricci,y_240/f_auto,q_auto/v1/apx2/certificates/web-2_-_certificate_rk3uwu.png",
-    },
-  ];
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setSelected(null);
+      }
+    };
+    if (selected) {
+      window.addEventListener("keydown", handleKeyDown);
+    }
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [selected]);
 
   return (
-    <div className="bg-background h-[82dvh] text-white flex flex-col items-center py-8 px-6 overflow-y-auto gap-1 md:justify-center">
-      <h1 className="text-4xl md:text-5xl font-bold mb-6 uppercase tracking-widest text-white border-b-2 border-primary-pink pb-1 w-fit">
-        Mis Estudios
-      </h1>
+    <section className="flex-1 max-w-6xl mx-auto w-full px-6 py-10 md:py-16 flex flex-col gap-10">
+      <div className="flex flex-col gap-3 max-w-2xl">
+        <span className="text-xs font-mono text-primary-pink-hover tracking-wider">
+          FORMACIÓN CONTINUA
+        </span>
+        <h1 className="text-3xl md:text-5xl font-extrabold text-white tracking-tight">
+          Mis Estudios y Certificaciones
+        </h1>
+        <p className="text-slate-400 text-base md:text-lg">
+          Seleccioná cualquier tarjeta para visualizar el certificado oficial.
+        </p>
+      </div>
 
       {/* GRID */}
-      <div className="grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-10 max-w-6xl">
-        {studies.map((study: any, index) => (
-          <motion.div
-            key={index}
-            className="bg-background-secondary p-6 rounded-2xl shadow-lg hover:shadow-blue-700/40 hover:scale-105 transition-transform cursor-pointer"
-            initial={{ opacity: 0, y: 50 }}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {STUDIES.map((study, index) => (
+          <motion.button
+            type="button"
+            key={`${study.title}-${study.date}`}
+            className="text-left bg-background-secondary hover:bg-surface-hover p-6 rounded-2xl border border-white/10 hover:border-primary-pink/40 transition-colors cursor-pointer flex flex-col justify-between gap-5 group focus:outline-none focus:ring-2 focus:ring-primary-pink"
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.2, delay: index * 0.1 }}
-            whileHover={{
-              y: -8,
-              transition: { duration: 0.05, ease: "linear" },
-            }}
+            transition={{ duration: 0.25, delay: index * 0.06 }}
             onClick={() => setSelected(study)}
           >
-            <h2 className="text-xl md:text-2xl font-bold text-white">
-              {study.title}
-            </h2>
-            <p className="text-gray-400">{study.place}</p>
-            <p className="text-sm text-gray-500 mb-4">{study.date}</p>
-            <p className="text-gray-300">{study.description}</p>
-          </motion.div>
+            <div className="flex flex-col gap-2.5">
+              <div className="flex items-center justify-between gap-2">
+                <span className="text-xs font-mono text-primary-pink-hover bg-primary-pink/10 border border-primary-pink/25 px-2.5 py-0.5 rounded-md">
+                  {study.place}
+                </span>
+                <span className="text-xs font-mono text-slate-400">
+                  {study.date}
+                </span>
+              </div>
+
+              <h2 className="text-xl font-bold text-white group-hover:text-primary-pink-hover transition-colors pt-1">
+                {study.title}
+              </h2>
+
+              <p className="text-slate-300 text-sm leading-relaxed">
+                {study.description}
+              </p>
+            </div>
+
+            <div className="flex items-center justify-between pt-4 border-t border-white/10 text-xs font-mono text-slate-400 group-hover:text-white transition-colors w-full">
+              <span>Ver certificado</span>
+              <span aria-hidden="true">↗</span>
+            </div>
+          </motion.button>
         ))}
       </div>
 
@@ -88,39 +74,66 @@ export const Estudios = () => {
       <AnimatePresence>
         {selected && (
           <motion.div
-            className="fixed inset-0 bg-black/70 flex items-center justify-center z-50 p-4"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="modal-study-title"
+            className="fixed inset-0 bg-black/80 backdrop-blur-sm flex items-center justify-center z-50 p-4"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={() => setSelected(null)}
           >
             <motion.div
-              className="bg-gray-900 rounded-2xl p-4 max-w-3xl w-full shadow-xl"
-              initial={{ scale: 0.8 }}
-              animate={{ scale: 1 }}
-              exit={{ scale: 0.8 }}
+              className="bg-background-secondary border border-white/15 rounded-2xl p-5 md:p-6 max-w-3xl w-full shadow-2xl max-h-[90dvh] overflow-y-auto"
+              initial={{ scale: 0.92, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.92, opacity: 0 }}
+              transition={{ duration: 0.2 }}
               onClick={(e) => e.stopPropagation()}
             >
-              <h2 className="text-xl md:2xl font-bold text-white mb-2">
-                {selected.title}
-              </h2>
-              <p className="text-gray-400">{selected.place}</p>
-              <p className="text-sm text-gray-500 mb-4">{selected.date}</p>
+              <div className="flex items-start justify-between gap-4 mb-4">
+                <div>
+                  <h2
+                    id="modal-study-title"
+                    className="text-xl md:text-2xl font-bold text-white"
+                  >
+                    {selected.title}
+                  </h2>
+                  <p className="text-sm font-mono text-slate-400 mt-1">
+                    {selected.place} · {selected.date}
+                  </p>
+                </div>
+
+                <button
+                  type="button"
+                  onClick={() => setSelected(null)}
+                  aria-label="Cerrar certificado"
+                  className="px-3 py-1.5 rounded-lg bg-white/5 hover:bg-white/10 text-slate-300 hover:text-white text-sm font-mono transition-colors"
+                >
+                  ESC ✕
+                </button>
+              </div>
+
               <img
                 src={selected.img}
-                alt={selected.title}
-                className="rounded-lg border border-gray-700"
+                alt={`Certificado de ${selected.title} en ${selected.place}`}
+                loading="lazy"
+                className="w-full rounded-xl border border-white/10 bg-black/40"
               />
-              <button
-                className="mt-4 px-4 p-1.5 bg-blue-600 hover:bg-blue-700 text-white  rounded-xl text-base"
-                onClick={() => setSelected(null)}
-              >
-                Cerrar
-              </button>
+
+              <div className="mt-5 flex justify-end">
+                <button
+                  type="button"
+                  className="px-5 py-2 bg-primary-pink hover:bg-primary-pink-hover text-white font-medium rounded-xl text-sm transition-colors"
+                  onClick={() => setSelected(null)}
+                >
+                  Cerrar
+                </button>
+              </div>
             </motion.div>
           </motion.div>
         )}
       </AnimatePresence>
-    </div>
+    </section>
   );
 };

@@ -1,91 +1,88 @@
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
+import { PROJECTS } from "../data/portfolioData";
 
 export const Proyectos = () => {
-  const proyectos = [
-    {
-      title: "Mutual 30 de Octubre",
-      place: "JavaScript | Parcel",
-      description: "Pagina web para la mutual 30 de Octubre",
-      github: "https://github.com/lukebro82/mutual",
-      web: "https://mutual30.com.ar",
-    },
-    {
-      title: "Ahorcado Game",
-      place: "TypeScript | React | Vite",
-      description: "Juego del ahorcado",
-      github: "https://github.com/lukebro82/ahorcado-game",
-      web: "https://ahorcado-luke.netlify.app/",
-    },
-    {
-      title: "Gif App",
-      place: "React | Vite",
-      description: "Buscador de GIFs",
-      github: "https://github.com/lukebro82/gif-app",
-      web: "https://gif-app-luke.netlify.app/",
-    },
-    {
-      title: "Pet-Finder",
-      place: "TypeScript | React | Vite | Zustand | Express | PostgreSQL",
-      description: "App de busqueda de mascotas perdidas",
-      github: "https://github.com/lukebro82/petfinder-react",
-      web: "https://petfinder-react-front.onrender.com",
-    },
-    {
-      title: "Heroes-App",
-      place: "React | React Router | Bootstrap",
-      description:
-        "Aplicación web para buscar información de héroes de Marvel y DC.",
-      github: "https://github.com/lukebro82/Heroes-App",
-      web: "https://heroes-searchapp.netlify.app",
-    },
-  ];
-
   return (
-    <div className="bg-background h-[82dvh] text-white flex flex-col items-center py-8 px-6 overflow-y-auto gap-1 md:justify-center">
-      <h1 className="text-4xl md:text-5xl font-bold mb-6 uppercase tracking-widest text-white border-b-2 border-primary-pink pb-1 w-fit">
-        Mis Proyectos
-      </h1>
+    <section className="flex-1 max-w-6xl mx-auto w-full px-6 py-10 md:py-16 flex flex-col gap-10">
+      <div className="flex flex-col gap-3 max-w-2xl">
+        <span className="text-xs font-mono text-primary-pink-hover tracking-wider">
+          PORTAFOLIO DE TRABAJO
+        </span>
+        <h1 className="text-3xl md:text-5xl font-extrabold text-white tracking-tight">
+          Mis Proyectos
+        </h1>
+        <p className="text-slate-400 text-base md:text-lg">
+          Aplicaciones fullstack, sitios en producción y proyectos interactivos
+          desarrollados con React, TypeScript y Node.js.
+        </p>
+      </div>
 
-      <div className="grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-8 max-w-6xl">
-        {proyectos.map((proyecto, index) => (
-          <motion.div
-            key={index}
-            className="bg-background-secondary p-6 rounded-2xl shadow-lg hover:shadow-blue-700/40 hover:scale-105 transition-transform cursor-pointer flex flex-col justify-between"
-            initial={{ opacity: 0, y: 50 }}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {PROJECTS.map((proyecto, index) => (
+          <motion.article
+            key={proyecto.title}
+            className={`rounded-2xl p-6 flex flex-col justify-between border transition-colors ${
+              proyecto.featured
+                ? "bg-background-secondary border-primary-pink/35 hover:border-primary-pink/60 lg:col-span-1"
+                : "bg-background-secondary/80 border-white/10 hover:border-white/25"
+            }`}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.2, delay: index * 0.1 }}
-            whileHover={{
-              y: -8,
-              transition: { duration: 0.05, ease: "linear" },
-            }}
+            transition={{ duration: 0.25, delay: index * 0.06 }}
           >
-            <div>
+            <div className="flex flex-col gap-4">
+              <div className="flex items-center justify-between gap-2">
+                <span className="text-xs font-mono text-slate-400">
+                  {proyecto.role}
+                </span>
+                {proyecto.featured && (
+                  <span className="px-2.5 py-0.5 rounded-full text-[11px] font-mono bg-primary-pink/15 text-primary-pink-hover border border-primary-pink/30">
+                    Destacado
+                  </span>
+                )}
+              </div>
+
               <h2 className="text-xl md:text-2xl font-bold text-white">
                 {proyecto.title}
               </h2>
-              <p className="text-gray-400">{proyecto.place}</p>
-              <p className="text-gray-300 mb-4">{proyecto.description}</p>
+
+              <p className="text-slate-300 text-sm md:text-base leading-relaxed">
+                {proyecto.description}
+              </p>
+
+              <div className="flex flex-wrap gap-1.5 pt-1">
+                {proyecto.stack.map((tech) => (
+                  <span
+                    key={tech}
+                    className="px-2.5 py-1 rounded-md bg-white/5 border border-white/10 text-xs font-mono text-slate-300"
+                  >
+                    {tech}
+                  </span>
+                ))}
+              </div>
             </div>
 
-            <div className="flex gap-4 mt-4">
-              <a
-                href={proyecto.github}
-                target="_blank"
-                className="px-4 p-1.5 bg-[#343A40] hover:bg-[#495057] text-white rounded-xl text-base"
-              >
-                GitHub
-              </a>
+            <div className="flex items-center gap-3 pt-6 mt-6 border-t border-white/10">
               <a
                 href={proyecto.web}
                 target="_blank"
-                className="px-4 p-1.5 bg-blue-600 hover:bg-blue-700 text-white  rounded-xl text-base"
+                rel="noopener noreferrer"
+                className="flex-1 text-center px-4 py-2.5 bg-primary-pink hover:bg-primary-pink-hover text-white font-medium rounded-xl text-sm transition-colors"
               >
-                Ver Web
+                Ver Demo
+              </a>
+              <a
+                href={proyecto.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex-1 text-center px-4 py-2.5 bg-white/5 hover:bg-white/10 border border-white/10 text-slate-200 font-medium rounded-xl text-sm transition-colors"
+              >
+                Código GitHub
               </a>
             </div>
-          </motion.div>
+          </motion.article>
         ))}
       </div>
-    </div>
+    </section>
   );
 };

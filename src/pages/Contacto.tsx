@@ -1,82 +1,144 @@
+import { type FormEvent, useState } from "react";
+import Swal from "sweetalert2";
 import linkedin from "../assets/linkedin.svg";
 import github from "../assets/cat.svg";
+import mailIcon from "../assets/email.svg";
 import { useForm } from "../hooks/useForm";
-import Swal from "sweetalert2";
-import { sendMail } from "../helpers/senMail";
+import { sendMail } from "../helpers/sendMail";
 
 export const Contacto = () => {
-  const { nombre, email, mensaje, onInputChange, onResetForm }: any = useForm({
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const { nombre, email, mensaje, onInputChange, onResetForm } = useForm({
     nombre: "",
     email: "",
     mensaje: "",
   });
 
-  const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     if (!nombre.trim() || !email.trim() || !mensaje.trim()) {
       Swal.fire({
-        icon: "error",
-        title: "Error",
-        text: "Por favor, completa todos los campos.",
-        background: "#1f2937",
+        icon: "warning",
+        title: "Campos incompletos",
+        text: "Por favor, completá tu nombre, email y mensaje antes de enviar.",
+        background: "#131924",
         color: "#ffffff",
-        confirmButtonColor: "#2563eb",
+        confirmButtonColor: "#e11d74",
       });
-
       return;
     }
 
-    await sendMail(mensaje, nombre, email);
+    setIsSubmitting(true);
+    try {
+      await sendMail(mensaje, nombre, email);
 
-    Swal.fire({
-      icon: "success",
-      title: "Mensaje enviado correctamente!",
-      text: "Gracias por tu mensaje.",
-      background: "#1f2937",
-      color: "#ffffff",
-      confirmButtonColor: "#2563eb",
-    });
+      Swal.fire({
+        icon: "success",
+        title: "¡Mensaje enviado!",
+        text: "Gracias por escribirme. Te responderé a la brevedad.",
+        background: "#131924",
+        color: "#ffffff",
+        confirmButtonColor: "#e11d74",
+      });
 
-    onResetForm();
+      onResetForm();
+    } catch (error) {
+      Swal.fire({
+        icon: "error",
+        title: "No se pudo enviar",
+        text:
+          error instanceof Error
+            ? error.message
+            : "Ocurrió un problema al enviar el mensaje. Intentá nuevamente.",
+        background: "#131924",
+        color: "#ffffff",
+        confirmButtonColor: "#e11d74",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
+
   return (
-    <div className="bg-background h-[82dvh] text-white flex flex-col items-center gap-6 md:gap-10 p-6 md:p-10 overflow-y-auto">
-      <div className="flex flex-row justify-center gap-6 md:gap-8 p-2 w-full max-w-md">
-        <a
-          href="https://www.linkedin.com/in/lucas-ricci82/"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="hover:scale-110 transition-transform"
-        >
-          <img
-            src={linkedin}
-            alt="LinkedIn"
-            className="h-14 w-14 invert hover:opacity-80 transition-opacity"
-          />
-        </a>
-        <a
-          href="https://github.com/lukebro82"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="hover:scale-110 transition-transform"
-        >
-          <img
-            src={github}
-            alt="GitHub"
-            className="h-14 w-14 hover:opacity-80 transition-opacity"
-          />
-        </a>
+    <section className="flex-1 max-w-6xl mx-auto w-full px-6 py-10 md:py-16 grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+      {/* Columna Izquierda: Info y Redes */}
+      <div className="lg:col-span-5 flex flex-col gap-6">
+        <div className="flex flex-col gap-3">
+          <span className="text-xs font-mono text-primary-pink-hover tracking-wider">
+            CONTACTO DIRECTO
+          </span>
+          <h1 className="text-3xl md:text-5xl font-extrabold text-white tracking-tight">
+            Hablemos sobre tu próximo proyecto
+          </h1>
+          <p className="text-slate-400 text-base leading-relaxed">
+            Estoy disponible para oportunidades laborales como Desarrollador
+            Fullstack o Frontend, así como proyectos freelance.
+          </p>
+        </div>
+
+        <div className="flex flex-col gap-3 pt-2">
+          <a
+            href="mailto:lucas.82@hotmail.com.ar"
+            className="flex items-center gap-4 p-4 rounded-xl bg-background-secondary border border-white/10 hover:border-primary-pink/40 transition-colors"
+          >
+            <div className="p-2.5 rounded-lg bg-white/5">
+              <img src={mailIcon} alt="" className="w-6 h-6 invert" />
+            </div>
+            <div className="flex flex-col">
+              <span className="text-xs font-mono text-slate-400">Email</span>
+              <span className="text-sm md:text-base font-medium text-white">
+                lucas.82@hotmail.com.ar
+              </span>
+            </div>
+          </a>
+
+          <a
+            href="https://www.linkedin.com/in/lucas-ricci82/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-4 p-4 rounded-xl bg-background-secondary border border-white/10 hover:border-primary-pink/40 transition-colors"
+          >
+            <div className="p-2.5 rounded-lg bg-white/5">
+              <img src={linkedin} alt="" className="w-6 h-6 invert" />
+            </div>
+            <div className="flex flex-col">
+              <span className="text-xs font-mono text-slate-400">LinkedIn</span>
+              <span className="text-sm md:text-base font-medium text-white">
+                linkedin.com/in/lucas-ricci82
+              </span>
+            </div>
+          </a>
+
+          <a
+            href="https://github.com/lukebro82"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-4 p-4 rounded-xl bg-background-secondary border border-white/10 hover:border-primary-pink/40 transition-colors"
+          >
+            <div className="p-2.5 rounded-lg bg-white/5">
+              <img src={github} alt="" className="w-6 h-6" />
+            </div>
+            <div className="flex flex-col">
+              <span className="text-xs font-mono text-slate-400">GitHub</span>
+              <span className="text-sm md:text-base font-medium text-white">
+                github.com/lukebro82
+              </span>
+            </div>
+          </a>
+        </div>
       </div>
 
-      <div className="w-full max-w-md">
-        <form onSubmit={onSubmit} className="flex flex-col gap-4 md:gap-6">
+      {/* Columna Derecha: Formulario */}
+      <div className="lg:col-span-7 bg-background-secondary border border-white/10 rounded-2xl p-6 md:p-8">
+        <form onSubmit={onSubmit} className="flex flex-col gap-5" noValidate>
           <div className="flex flex-col gap-2">
             <label
               htmlFor="nombre"
-              className="text-sm font-medium text-gray-300"
+              className="text-sm font-medium text-slate-200"
             >
-              Nombre
+              Nombre completo
             </label>
             <input
               id="nombre"
@@ -84,17 +146,18 @@ export const Contacto = () => {
               type="text"
               value={nombre}
               onChange={onInputChange}
-              className="border border-gray-600 rounded-md px-3 py-3 w-full text-white bg-gray-800 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 transition-colors"
-              placeholder="Tu nombre completo"
+              disabled={isSubmitting}
+              className="border border-white/15 rounded-xl px-4 py-3 w-full text-white bg-background focus:border-primary-pink focus:outline-none focus:ring-1 focus:ring-primary-pink transition-colors disabled:opacity-60"
+              placeholder="Ej. Juan Pérez"
             />
           </div>
 
           <div className="flex flex-col gap-2">
             <label
               htmlFor="email"
-              className="text-sm font-medium text-gray-300"
+              className="text-sm font-medium text-slate-200"
             >
-              Email
+              Correo electrónico
             </label>
             <input
               id="email"
@@ -102,7 +165,8 @@ export const Contacto = () => {
               type="email"
               value={email}
               onChange={onInputChange}
-              className="border border-gray-600 rounded-md px-3 py-3 w-full text-white bg-gray-800 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 transition-colors"
+              disabled={isSubmitting}
+              className="border border-white/15 rounded-xl px-4 py-3 w-full text-white bg-background focus:border-primary-pink focus:outline-none focus:ring-1 focus:ring-primary-pink transition-colors disabled:opacity-60"
               placeholder="tu.email@ejemplo.com"
             />
           </div>
@@ -110,7 +174,7 @@ export const Contacto = () => {
           <div className="flex flex-col gap-2">
             <label
               htmlFor="mensaje"
-              className="text-sm font-medium text-gray-300"
+              className="text-sm font-medium text-slate-200"
             >
               Mensaje
             </label>
@@ -119,20 +183,22 @@ export const Contacto = () => {
               name="mensaje"
               value={mensaje}
               onChange={onInputChange}
-              className="border border-gray-600 rounded-md px-3 py-3 w-full text-white bg-gray-800 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 transition-colors resize-none"
-              rows={4}
-              placeholder="Escribe tu mensaje aquí..."
-            ></textarea>
+              disabled={isSubmitting}
+              className="border border-white/15 rounded-xl px-4 py-3 w-full text-white bg-background focus:border-primary-pink focus:outline-none focus:ring-1 focus:ring-primary-pink transition-colors resize-none disabled:opacity-60"
+              rows={5}
+              placeholder="Contame sobre el puesto o proyecto en el que podemos trabajar juntos..."
+            />
           </div>
 
           <button
             type="submit"
-            className="bg-blue-600 hover:bg-blue-700 focus:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-gray-900 transition-all duration-200 text-white font-semibold py-3 px-6 rounded-md mt-2"
+            disabled={isSubmitting}
+            className="bg-primary-pink hover:bg-primary-pink-hover disabled:opacity-60 disabled:cursor-not-allowed focus:outline-none focus:ring-2 focus:ring-primary-pink focus:ring-offset-2 focus:ring-offset-background transition-all duration-200 text-white font-semibold py-3.5 px-6 rounded-xl mt-1 cursor-pointer"
           >
-            Enviar Mensaje
+            {isSubmitting ? "Enviando mensaje..." : "Enviar Mensaje"}
           </button>
         </form>
       </div>
-    </div>
+    </section>
   );
 };

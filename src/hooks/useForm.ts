@@ -1,24 +1,26 @@
-import { useState } from "react";
+import { type ChangeEvent, useState } from "react";
 
-export const useForm = (initialForm = {}) => {
-  const [formState, setformState] = useState(initialForm);
+export const useForm = <T extends Record<string, string>>(initialForm: T) => {
+  const [formState, setFormState] = useState<T>(initialForm);
 
-  const onInputChange = ({ target }: any) => {
+  const onInputChange = ({
+    target,
+  }: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = target;
-    setformState({ ...formState, [name]: value });
+    setFormState((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
   };
 
   const onResetForm = () => {
-    setformState(initialForm);
+    setFormState(initialForm);
   };
 
   return {
     ...formState,
-
     formState,
-
     onInputChange,
-
     onResetForm,
   };
 };
